@@ -1,0 +1,55 @@
+{
+  "name": "@abliteratedllm/mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server for AbliteratedLLM: list models and prices, estimate costs, check your balance, and chat with its models.",
+  "mcpName": "io.github.abliteratedllm/mcp-server",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "abliteratedllm",
+    "llm"
+  ],
+  "homepage": "https://github.com/abliteratedllm/mcp-server#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abliteratedllm/mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abliteratedllm/mcp-server/issues",
+    "email": "support@abliteratedllm.dev"
+  },
+  "license": "MIT",
+  "author": "AbliteratedLLM <support@abliteratedllm.dev>",
+  "type": "module",
+  "bin": {
+    "abliteratedllm-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.3.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p test/tsconfig.json",
+    "test": "node --test \"test/*.test.ts\"",
+    "smoke": "node scripts/smoke.mjs",
+    "prepack": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "typescript": "^7.0.2"
+  }
+}

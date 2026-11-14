@@ -1,0 +1,42 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.abliteratedllm/mcp-server",
+  "title": "AbliteratedLLM",
+  "description": "Browse AbliteratedLLM models and prices, check your balance, and call its models from any MCP host.",
+  "websiteUrl": "https://abliteratedllm.dev/docs",
+  "repository": {
+    "url": "https://github.com/abliteratedllm/mcp-server",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@abliteratedllm/mcp-server",
+      "version": "0.1.0",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "ABLITERATEDLLM_API_KEY",
+          "description": "API key from https://abliteratedllm.dev/dashboard/keys. Needed for chat and get_balance; a key with a daily spend cap is recommended.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string",
+          "placeholder": "sk-..."
+        },
+        {
+          "name": "ABLITERATEDLLM_TIMEOUT_SECONDS",
+          "description": "Seconds chat waits for a reply, 1 to 600. Raise it only if your MCP host allows tool calls longer than 60 seconds.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "number",
+          "default": "55"
+        }
+      ]
+    }
+  ]
+}
