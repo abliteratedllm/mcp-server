@@ -34,7 +34,7 @@ Each snippet starts the server with `npx -y @abliteratedllm/mcp-server`. Replace
 ### Claude Code
 
 ```bash
-claude mcp add --scope user --env ABLITERATEDLLM_API_KEY=sk-... abliteratedllm -- npx -y @abliteratedllm/mcp-server
+claude mcp add --scope user abliteratedllm --env ABLITERATEDLLM_API_KEY=sk-... -- npx -y @abliteratedllm/mcp-server
 ```
 
 `--scope user` saves the server in your user configuration rather than in a project's `.mcp.json`. Run `/mcp` in Claude Code to check that it is connected.
@@ -144,10 +144,10 @@ Prices: [abliteratedllm.dev/pricing](https://abliteratedllm.dev/pricing), or cal
 
 A request that is stopped is billed for its estimated input and any output the model generated before it stopped. Keep `max_tokens` and `reasoning_effort` modest, or pick a faster model, if replies take long.
 
-If your host allows longer tool calls, raise `ABLITERATEDLLM_TIMEOUT_SECONDS`, up to 600 (the API's own limit per request is 10 minutes). Claude Code's CLI, for example, waits much longer than 60 seconds by default (see its `MCP_TOOL_TIMEOUT` setting):
+If your host allows longer tool calls, raise `ABLITERATEDLLM_TIMEOUT_SECONDS`, up to 600 (the API's own limit per request is 14 minutes). Claude Code's CLI, for example, waits much longer than 60 seconds by default (see its `MCP_TOOL_TIMEOUT` setting):
 
 ```bash
-claude mcp add --scope user --env ABLITERATEDLLM_API_KEY=sk-... --env ABLITERATEDLLM_TIMEOUT_SECONDS=300 abliteratedllm -- npx -y @abliteratedllm/mcp-server
+claude mcp add --scope user abliteratedllm --env ABLITERATEDLLM_API_KEY=sk-... --env ABLITERATEDLLM_TIMEOUT_SECONDS=300 -- npx -y @abliteratedllm/mcp-server
 ```
 
 While `chat` waits, it sends a progress notification every 10 seconds to hosts that request progress.
